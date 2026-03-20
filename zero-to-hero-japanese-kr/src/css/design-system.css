@@ -19,7 +19,7 @@
   --heading: #eef1f8;
   --accent: #c0392b;
   --accent-glow: rgba(192, 57, 43, .08);
-  --a2: #7c6dd8;
+  --a2: #4a8fe2;
   --a3: #2ebd80;
   --a4: #e8943a;
   --a5: #e05c7a;
@@ -36,7 +36,7 @@
   --quiz-incorrect: #e05c7a;
   --quiz-neutral: #4a90e2;
   --jp-highlight: rgba(192, 57, 43, .12);
-  --kr-highlight: rgba(124, 109, 216, .12);
+  --kr-highlight: rgba(74, 143, 226, .12);
   --cognate-highlight: rgba(46, 189, 128, .12);
 }
 
@@ -51,7 +51,7 @@
   --heading: #0d1020;
   --accent: #a93226;
   --accent-glow: rgba(169, 50, 38, .06);
-  --a2: #6550b0;
+  --a2: #3a6fbf;
   --a3: #1a8c5e;
   --a4: #c47a1a;
   --a5: #b84060;
@@ -60,7 +60,7 @@
   --dl: #a8aec2;
   --progress-bg: #d8dce6;
   --jp-highlight: rgba(169, 50, 38, .08);
-  --kr-highlight: rgba(101, 80, 176, .08);
+  --kr-highlight: rgba(58, 111, 191, .08);
   --cognate-highlight: rgba(26, 140, 94, .08);
 }
 
@@ -367,7 +367,7 @@ pre code { background: none; padding: 0; }
 .callout.memory .callout-title { color: var(--a2); }
 
 /* --- Palace Location Marker --- */
-.palace-marker { display: inline-flex; align-items: center; gap: .3rem; padding: .2rem .5rem; border-radius: 4px; background: rgba(124,109,216,.1); color: var(--a2); font-size: .8rem; font-weight: 600; }
+.palace-marker { display: inline-flex; align-items: center; gap: .3rem; padding: .2rem .5rem; border-radius: 4px; background: rgba(74,143,226,.1); color: var(--a2); font-size: .8rem; font-weight: 600; }
 
 /* --- Streak Counter --- */
 .streak-display { font-family: var(--mono); color: var(--a4); font-size: .9rem; text-align: center; padding: .5rem; }
