@@ -310,7 +310,7 @@ section ul, section ol { margin: 0 0 1.2rem 1.4rem; }
 section li { margin-bottom: .4rem; font-size: .95rem; }
 strong { color: var(--text-bright); font-weight: 600; }
 a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: none; color: var(--text-bright); }
 
 /* --- Cards --- */
 .card {
@@ -809,11 +809,9 @@ pre code { background: none; padding: 0; }
   font-size: .82rem; color: var(--text-muted); line-height: 1.5;
 }
 
-/* --- Chapter Mini-TOC --- */
+/* --- Chapter Mini-TOC (On This Page) --- */
 .chapter-toc {
-  float: left;
-  width: 220px;
-  margin: 0 1.5rem 1rem 0;
+  margin: 0 0 1.5rem 0;
   padding: .8rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -836,15 +834,69 @@ pre code { background: none; padding: 0; }
   list-style: none;
 }
 .chapter-toc li {
-  padding: .12rem 0;
+  padding: .15rem 0;
 }
 .chapter-toc a {
   color: var(--text-muted);
   text-decoration: none;
-  transition: color .15s;
+  transition: color .15s, border-left-color .15s;
+  display: block;
+  padding: .1rem 0 .1rem .6rem;
+  border-left: 2px solid transparent;
 }
 .chapter-toc a:hover {
   color: var(--accent);
+}
+.chapter-toc a.toc-active {
+  color: var(--heading);
+  border-left-color: var(--accent);
+}
+
+/* Desktop: right-rail sticky TOC */
+@media (min-width: 1280px) {
+  .content-wrap:has(.chapter-toc) {
+    max-width: 1120px;
+  }
+  section[id^="ch"]:has(.chapter-toc) {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    column-gap: 2.5rem;
+  }
+  section[id^="ch"]:has(.chapter-toc) > * {
+    grid-column: 1;
+    min-width: 0;
+  }
+  section[id^="ch"]:has(.chapter-toc)::before {
+    grid-column: 1 / -1;
+  }
+  .chapter-toc {
+    grid-column: 2;
+    grid-row: 1 / span 200;
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    width: auto;
+    margin: 0;
+    padding: 0 0 1rem 1rem;
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--border);
+    border-radius: 0;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  .chapter-toc::-webkit-scrollbar { width: 2px; }
+  .chapter-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .chapter-toc-title {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: .4rem;
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--text-muted);
+  }
 }
 
 /* --- Footer --- */
@@ -863,7 +915,6 @@ footer {
   .main { margin-left: 0; }
 }
 @media (max-width: 700px) {
-  .chapter-toc { float: none; width: 100%; margin: 1rem 0; }
   .hero h1 { font-size: 2rem; }
   .content-wrap { padding: 0 1.2rem; }
   section[id^="ch"] { padding: 2rem 0; }

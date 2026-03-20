@@ -85,3 +85,33 @@
     }
   };
 })();
+
+// --- Chapter TOC Scroll Spy ---
+(function () {
+  var toc = document.querySelector('.chapter-toc');
+  if (!toc) return;
+  var links = [].slice.call(toc.querySelectorAll('a[href^="#"]'));
+  if (!links.length) return;
+  var headings = [];
+  for (var i = 0; i < links.length; i++) {
+    var el = document.getElementById(links[i].getAttribute('href').slice(1));
+    if (el) headings.push({ el: el, link: links[i] });
+  }
+  if (!headings.length) return;
+  var raf;
+  function update() {
+    var y = (window.scrollY || window.pageYOffset) + 120;
+    var active = -1;
+    for (var i = 0; i < headings.length; i++) {
+      if (headings[i].el.offsetTop <= y) active = i;
+    }
+    for (var j = 0; j < headings.length; j++) {
+      headings[j].link.classList.toggle('toc-active', j === active);
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { update(); raf = null; });
+  });
+  update();
+})();
