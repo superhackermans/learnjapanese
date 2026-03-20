@@ -68,7 +68,7 @@
 
     // Update progress count
     var countEl = document.querySelector('.sidebar-progress-count');
-    if (countEl) countEl.textContent = completed + '/18 완료';
+    if (countEl) countEl.textContent = completed + '/22 완료';
 
     // Update toc checkboxes
     var checks = document.querySelectorAll('.toc-check');
@@ -114,7 +114,7 @@
     });
 
     var landingCount = document.querySelector('.progress-count');
-    if (landingCount) landingCount.textContent = completed + '/18 완료';
+    if (landingCount) landingCount.textContent = completed + '/22 완료';
   }
 
   // Run on load

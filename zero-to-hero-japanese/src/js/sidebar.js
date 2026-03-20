@@ -68,7 +68,7 @@
 
     // Update progress count
     var countEl = document.querySelector('.sidebar-progress-count');
-    if (countEl) countEl.textContent = completed + '/20 complete';
+    if (countEl) countEl.textContent = completed + '/22 complete';
 
     // Update toc checkboxes
     var checks = document.querySelectorAll('.toc-check');
@@ -114,7 +114,7 @@
     });
 
     var landingCount = document.querySelector('.progress-count');
-    if (landingCount) landingCount.textContent = completed + '/20 complete';
+    if (landingCount) landingCount.textContent = completed + '/22 complete';
   }
 
   // Run on load

@@ -78,7 +78,7 @@
     },
     getCompletedCount: function () {
       var count = 0;
-      for (var i = 0; i <= 20; i++) {
+      for (var i = 0; i <= 21; i++) {
         if (this.isComplete(String(i).padStart(2, '0'))) count++;
       }
       return count;
