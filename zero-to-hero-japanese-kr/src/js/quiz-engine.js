@@ -1,6 +1,6 @@
 /* ============================================================
    Zero to Hero — Quiz Engine
-   7 reusable quiz component types
+   9 reusable quiz component types
    ============================================================ */
 
 var QuizEngine = (function () {
@@ -554,6 +554,146 @@ var QuizEngine = (function () {
     container.appendChild(wrap);
   }
 
+  // ─── 8. Memory Palace Walker ───
+  function PalaceWalker(container, data) {
+    // data: { title, palace, locations: [{ id, name, position: {x,y}, item: {prompt, answer, detail} }] }
+    // Delegates to MemoryPalace.Walker if available
+    if (typeof MemoryPalace !== 'undefined' && MemoryPalace.Walker) {
+      MemoryPalace.Walker(container, data);
+    } else {
+      var wrap = el('div', 'quiz-container');
+      var header = el('div', 'quiz-header',
+        (data.title || 'Palace Walker') + ' <span class="quiz-type">Memory Palace</span>'
+      );
+      var body = el('div', 'quiz-body');
+      wrap.appendChild(header);
+      wrap.appendChild(body);
+
+      body.appendChild(el('div', 'quiz-prompt',
+        '<strong>Memory Palace module not loaded.</strong><br>' +
+        'Include memory-palace.js before quiz-engine.js.'
+      ));
+      container.appendChild(wrap);
+    }
+  }
+
+  // ─── 9. Predict-and-Verify ───
+  function PredictVerify(container, data) {
+    // data: { title, items: [{ korean, context, answer, acceptAlso:[], explanation }] }
+    var wrap = el('div', 'quiz-container');
+    var header = el('div', 'quiz-header',
+      (data.title || 'Predict & Verify') + ' <span class="quiz-type">Korean bridge prediction</span>'
+    );
+    var body = el('div', 'quiz-body');
+    wrap.appendChild(header);
+    wrap.appendChild(body);
+
+    var items = data.items || [];
+    var totalPredictions = 0;
+    var correctPredictions = 0;
+
+    // Accuracy tracker
+    var accuracyDiv = el('div', '', '');
+    accuracyDiv.style.cssText = 'text-align:center;font-size:.85rem;color:var(--text-muted);margin-bottom:1rem;font-weight:500';
+    accuracyDiv.textContent = 'Prediction accuracy: --';
+    body.appendChild(accuracyDiv);
+
+    function updateAccuracy() {
+      var pct = totalPredictions > 0 ? Math.round((correctPredictions / totalPredictions) * 100) : 0;
+      accuracyDiv.textContent = 'Prediction accuracy: ' + pct + '% (' + correctPredictions + '/' + totalPredictions + ')';
+      accuracyDiv.style.color = totalPredictions === 0 ? 'var(--text-muted)' :
+        pct >= 70 ? 'var(--quiz-correct)' : 'var(--quiz-incorrect)';
+    }
+
+    items.forEach(function (item, qi) {
+      var qDiv = el('div', '', '');
+      qDiv.style.cssText = 'margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border, #eee)';
+
+      // Korean reading clue
+      var koreanDiv = el('div', '', '');
+      koreanDiv.style.cssText = 'font-size:.9rem;color:var(--text-muted);margin-bottom:.3rem';
+      koreanDiv.innerHTML = '<strong>Korean reading:</strong> ' + item.korean;
+      qDiv.appendChild(koreanDiv);
+
+      // Context clue
+      if (item.context) {
+        var contextDiv = el('div', '', '');
+        contextDiv.style.cssText = 'font-size:.88rem;color:var(--heading);margin-bottom:.75rem';
+        contextDiv.innerHTML = '<strong>Context:</strong> ' + item.context;
+        qDiv.appendChild(contextDiv);
+      }
+
+      // Prompt
+      var promptDiv = el('div', 'quiz-prompt', 'Predict the Japanese reading:');
+      promptDiv.style.fontSize = '.92rem';
+      qDiv.appendChild(promptDiv);
+
+      // Input field
+      var input = el('input', 'fill-blank-input');
+      input.type = 'text';
+      input.placeholder = 'Type your prediction...';
+      input.autocomplete = 'off';
+      qDiv.appendChild(input);
+
+      // Verify button
+      var verifyBtn = el('button', 'quiz-btn', 'Verify');
+      verifyBtn.style.marginLeft = '.5rem';
+      verifyBtn.style.verticalAlign = 'middle';
+      qDiv.appendChild(verifyBtn);
+
+      // Feedback area
+      var fb = el('div', 'quiz-feedback');
+      qDiv.appendChild(fb);
+
+      var answered = false;
+
+      function verify() {
+        if (answered) return;
+        answered = true;
+
+        var val = input.value.trim();
+        var accept = [item.answer].concat(item.acceptAlso || []);
+        var isCorrect = accept.some(function (a) {
+          return val === a || val.toLowerCase() === a.toLowerCase();
+        });
+
+        totalPredictions++;
+        input.classList.remove('correct', 'incorrect');
+        fb.classList.remove('correct', 'incorrect');
+
+        if (isCorrect) {
+          correctPredictions++;
+          input.classList.add('correct');
+          fb.className = 'quiz-feedback show correct';
+          fb.innerHTML = 'Correct prediction! <strong>' + item.answer + '</strong>' +
+            (item.explanation ? '<br>' + item.explanation : '');
+        } else {
+          input.classList.add('incorrect');
+          fb.className = 'quiz-feedback show incorrect';
+          fb.innerHTML = 'Actual Japanese reading: <strong>' + item.answer + '</strong>' +
+            (val ? '<br>Your prediction: <em>' + val + '</em>' : '<br><em>(no prediction entered)</em>') +
+            (item.explanation ? '<br>' + item.explanation : '');
+        }
+
+        // Disable input after answering
+        input.disabled = true;
+        verifyBtn.disabled = true;
+        verifyBtn.style.opacity = '0.5';
+
+        updateAccuracy();
+      }
+
+      verifyBtn.addEventListener('click', verify);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') verify();
+      });
+
+      body.appendChild(qDiv);
+    });
+
+    container.appendChild(wrap);
+  }
+
   // Public API
   return {
     Flashcard: Flashcard,
@@ -563,6 +703,8 @@ var QuizEngine = (function () {
     SentenceBuilder: SentenceBuilder,
     AudioDiscrimination: AudioDiscrimination,
     RecallCheck: RecallCheck,
-    MultipleChoice: MultipleChoice
+    MultipleChoice: MultipleChoice,
+    PalaceWalker: PalaceWalker,
+    PredictVerify: PredictVerify
   };
 })();

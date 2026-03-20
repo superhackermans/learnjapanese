@@ -22,15 +22,15 @@
 </button>
 
 <aside class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <span class="logo-badge">Zero to Hero</span>
+  <a href="index.html" class="sidebar-logo">
+    <span class="logo-badge">Zero to Hero — 기억 설계 에디션</span>
     <div class="logo-title">한국어 화자를 위한 日本語</div>
-    <div class="logo-sub">한국어에서 日本語로 — 한국어판</div>
-  </div>
-
+    <div class="logo-sub">한국어에서 日本語로 — 기억 설계자의 안내서</div>
+  </a>
   <div class="sidebar-progress">
     <div class="sidebar-progress-label">진행률</div>
     <div class="sidebar-progress-bar">
+      <div class="seg" data-ch="00"></div>
       <div class="seg" data-ch="01"></div><div class="seg" data-ch="02"></div>
       <div class="seg" data-ch="03"></div><div class="seg" data-ch="04"></div>
       <div class="seg" data-ch="05"></div><div class="seg" data-ch="06"></div>
@@ -40,11 +40,12 @@
       <div class="seg" data-ch="13"></div><div class="seg" data-ch="14"></div>
       <div class="seg" data-ch="15"></div><div class="seg" data-ch="16"></div>
       <div class="seg" data-ch="17"></div><div class="seg" data-ch="18"></div>
+      <div class="seg" data-ch="19"></div><div class="seg" data-ch="20"></div>
     </div>
-    <div class="sidebar-progress-count">0/18 완료</div>
+    <div class="sidebar-progress-count">0/20 완료</div>
   </div>
-
   <nav class="sidebar-nav">
+    <a href="ch-00.html" class="toc-link"><span class="toc-num">00</span><span class="toc-check" data-ch="00"></span>기억 과학</a>
     <a href="ch-01.html" class="toc-link"><span class="toc-num">01</span><span class="toc-check" data-ch="01"></span>한국어의 이점</a>
     <a href="ch-02.html" class="toc-link"><span class="toc-num">02</span><span class="toc-check" data-ch="02"></span>히라가나</a>
     <a href="ch-03.html" class="toc-link"><span class="toc-num">03</span><span class="toc-check" data-ch="03"></span>가타카나</a>
@@ -63,6 +64,8 @@
     <a href="ch-16.html" class="toc-link"><span class="toc-num">16</span><span class="toc-check" data-ch="16"></span>청해</a>
     <a href="ch-17.html" class="toc-link"><span class="toc-num">17</span><span class="toc-check" data-ch="17"></span>문화 화용론</a>
     <a href="ch-18.html" class="toc-link"><span class="toc-num">18</span><span class="toc-check" data-ch="18"></span>JLPT와 그 너머</a>
+    <a href="ch-19.html" class="toc-link"><span class="toc-num">19</span><span class="toc-check" data-ch="19"></span>기억의 궁전</a>
+    <a href="ch-20.html" class="toc-link"><span class="toc-num">20</span><span class="toc-check" data-ch="20"></span>90일 스프린트</a>
     <a href="appendices.html" class="toc-link" style="margin-top:.5rem;border-top:1px solid var(--border);padding-top:.8rem"><span class="toc-num">+</span>부록</a>
   </nav>
 </aside>
@@ -88,11 +91,11 @@
     <rect x="303" y="310" width="42" height="8" rx="2"/>
   </svg>
 
-  <div class="hero-badge">Zero to Hero — 한국어 화자를 위한 日本語</div>
+  <div class="hero-badge">Zero to Hero — 기억 설계 에디션</div>
   <h1><em>한국어</em>에서 <em>日本語</em>로<br>다리를 놓는 학습 가이드</h1>
-  <p class="hero-sub">일반 교과서가 아닙니다 — 여러분이 이미 알고 있는 모든 것을 체계적으로 활용하는 학습서입니다. 제로에서 실용적 유창함까지 18개 챕터, 한국어 화자를 위해 설계되었습니다.</p>
+  <p class="hero-sub">일반 교과서가 아닙니다 — 여러분이 이미 알고 있는 모든 것을 체계적으로 활용하고, 기억 과학으로 강화하는 학습서입니다. 제로에서 실용적 유창함까지 20개 챕터, 한국어 화자를 위해 설계되었습니다.</p>
   <div class="hero-meta">
-    <span>18개 챕터</span>
+    <span>20개 챕터</span>
     <span>100개 이상의 인터랙티브 연습문제</span>
     <span>JLPT N3 → N2 학습 경로</span>
   </div>
@@ -103,6 +106,7 @@
   <!-- PROGRESS BAR -->
   <div class="progress-section">
     <div class="progress-bar-large">
+      <div class="seg" data-label="Ch00 기억 과학"></div>
       <div class="seg" data-label="Ch01 한국어의 이점"></div>
       <div class="seg" data-label="Ch02 히라가나"></div>
       <div class="seg" data-label="Ch03 가타카나"></div>
@@ -121,9 +125,14 @@
       <div class="seg" data-label="Ch16 청해"></div>
       <div class="seg" data-label="Ch17 문화 화용론"></div>
       <div class="seg" data-label="Ch18 JLPT와 그 너머"></div>
+      <div class="seg" data-label="Ch19 기억의 궁전"></div>
+      <div class="seg" data-label="Ch20 90일 스프린트"></div>
     </div>
-    <div class="progress-count">0/18 완료</div>
+    <div class="progress-count">0/20 완료</div>
   </div>
+
+  <button class="quiz-btn" id="daily-review-btn" style="margin:1rem auto;display:block">일일 복습 — 오늘의 항목</button>
+  <div id="streak-counter" style="text-align:center;font-family:var(--mono);color:var(--a4);margin:.5rem 0">0일 연속 학습</div>
 
   <!-- THE THESIS -->
   <div class="pq">
@@ -145,6 +154,15 @@
   <!-- CHAPTER CHECKLIST -->
   <h3 style="margin: 2rem 0 1rem; font-family: var(--serif); font-size: 1.4rem; color: var(--heading);">챕터 목록</h3>
   <div class="chapter-checklist">
+
+    <a href="ch-00.html" class="checklist-item">
+      <span class="checklist-num">00</span>
+      <span class="checklist-check" data-ch="00"></span>
+      <div class="checklist-info">
+        <div class="checklist-title">기억 과학 — 기억의 과학</div>
+        <div class="checklist-desc">12가지 기억 기둥, 망각 곡선, 첫 기억의 궁전 구축</div>
+      </div>
+    </a>
 
     <a href="ch-01.html" class="checklist-item">
       <span class="checklist-num">01</span>
@@ -308,6 +326,24 @@
       </div>
     </a>
 
+    <a href="ch-19.html" class="checklist-item">
+      <span class="checklist-num">19</span>
+      <span class="checklist-check" data-ch="19"></span>
+      <div class="checklist-info">
+        <div class="checklist-title">기억의 궁전 — 모든 궁전 통합</div>
+        <div class="checklist-desc">그랜드 투어 경로, 유지 관리</div>
+      </div>
+    </a>
+
+    <a href="ch-20.html" class="checklist-item">
+      <span class="checklist-num">20</span>
+      <span class="checklist-check" data-ch="20"></span>
+      <div class="checklist-info">
+        <div class="checklist-title">90일 스프린트 — 체계적인 90일 계획</div>
+        <div class="checklist-desc">모든 기법을 통합한 체계적인 90일 학습 계획</div>
+      </div>
+    </a>
+
   </div>
 
   <!-- Appendices link -->
@@ -327,5 +363,29 @@
 <script src="js/shared.js"></script>
 <script src="js/theme.js"></script>
 <script src="js/sidebar.js"></script>
+<script src="js/spaced-repetition.js"></script>
+<script src="js/memory-palace.js"></script>
+<script>
+(function() {
+  var btn = document.getElementById('daily-review-btn');
+  var streakEl = document.getElementById('streak-counter');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      if (typeof window.SpacedRepetition !== 'undefined' && window.SpacedRepetition.getDueItems) {
+        var due = window.SpacedRepetition.getDueItems();
+        if (due.length === 0) {
+          btn.textContent = '일일 복습 — 모두 완료!';
+        } else {
+          window.SpacedRepetition.startReview(due);
+        }
+      }
+    });
+  }
+  if (streakEl) {
+    var streak = parseInt(localStorage.getItem('zth-streak') || '0', 10);
+    streakEl.textContent = streak + '일 연속 학습';
+  }
+})();
+</script>
 </body>
 </html>

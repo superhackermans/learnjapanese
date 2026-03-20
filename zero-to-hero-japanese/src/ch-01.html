@@ -63,6 +63,9 @@
 <div class="content-wrap">
 
 <section id="ch01" data-ch="01" style="padding-top:3rem">
+<!-- ─── RECALL CHECK (Ch00) ─── -->
+<div id="recall-check-00"></div>
+
 <h2><span class="ch-label">Chapter 01</span>Your Korean Advantage — What Transfers and What Doesn't</h2>
 
 <div class="callout memory">
@@ -294,6 +297,20 @@
 <script src="js/sidebar.js"></script>
 <script src="js/quiz-engine.js"></script>
 <script>
+// ─── Recall Check from Ch00 ───
+QuizEngine.RecallCheck(
+  document.getElementById('recall-check-00'),
+  {
+    fromChapters: 'Ch00',
+    items: [
+      { question: 'What percentage of material do you forget within 24 hours without review?', answer: '~70% (Ebbinghaus forgetting curve)' },
+      { question: 'Name three of the twelve memory pillars from Chapter 00.', answer: 'Spaced Repetition, Active Recall, Method of Loci, Keyword Mnemonics, Elaborative Interrogation, Interleaving, etc.' },
+      { question: 'How many loci (locations) does the memory palace in this course use?', answer: '12 loci — from front door to balcony' },
+      { question: 'What is the optimal first review interval in spaced repetition?', answer: '1 day after initial learning' }
+    ]
+  }
+);
+
 // ─── Quiz 1: Sentence Builder ───
 QuizEngine.SentenceBuilder(
   document.getElementById('quiz-sentence-builder'),
