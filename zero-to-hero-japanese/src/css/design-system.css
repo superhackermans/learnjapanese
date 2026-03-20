@@ -223,10 +223,6 @@ a.sidebar-logo:hover {
 
 /* --- Main Content --- */
 .main { margin-left: var(--sidebar-w); }
-.main:has(.page-toc-rail) {
-  display: flex;
-}
-.main:has(.page-toc-rail) .content-wrap { flex: 1; min-width: 0; }
 
 /* --- Hero Section --- */
 .hero {
@@ -813,26 +809,26 @@ pre code { background: none; padding: 0; }
   font-size: .82rem; color: var(--text-muted); line-height: 1.5;
 }
 
-/* --- Left-Rail TOC Sidebar --- */
-.page-toc-rail {
-  width: 220px;
-  flex-shrink: 0;
-  order: -1;
-  padding: 5rem 0 2rem 1rem;
-}
-.page-toc-rail .chapter-toc {
+/* --- Chapter Mini-TOC (sticky float) --- */
+.chapter-toc {
+  float: left;
   position: sticky;
   top: 2rem;
+  width: 200px;
+  margin: 0 1.5rem 1rem 0;
+  padding: .8rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: .78rem;
+  line-height: 1.6;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
   scrollbar-width: thin;
-  padding: 0 1rem 1rem 0;
-  border-right: 1px solid var(--border);
-  font-size: .78rem;
-  line-height: 1.6;
+  z-index: 10;
 }
-.page-toc-rail .chapter-toc::-webkit-scrollbar { width: 2px; }
-.page-toc-rail .chapter-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.chapter-toc::-webkit-scrollbar { width: 2px; }
+.chapter-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 .chapter-toc-title {
   font-family: var(--sans);
   font-weight: 600;
@@ -874,9 +870,6 @@ footer {
 }
 
 /* --- Responsive --- */
-@media (max-width: 1279px) {
-  .page-toc-rail { display: none; }
-}
 @media (max-width: 900px) {
   .sidebar { transform: translateX(-100%); width: 280px; }
   .sidebar.open { transform: translateX(0); }
@@ -885,6 +878,7 @@ footer {
   .main { margin-left: 0; }
 }
 @media (max-width: 700px) {
+  .chapter-toc { float: none; position: static; width: 100%; margin: 0 0 1.5rem 0; max-height: none; }
   .hero h1 { font-size: 2rem; }
   .content-wrap { padding: 0 1.2rem; }
   section[id^="ch"] { padding: 2rem 0; }
