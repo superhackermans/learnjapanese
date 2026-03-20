@@ -16,19 +16,20 @@
 </button>
 
 <aside class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <span class="logo-badge">Zero to Hero</span>
+  <a href="index.html" class="sidebar-logo">
+    <span class="logo-badge">Zero to Hero — Memory Architecture Edition</span>
     <div class="logo-title">日本語 for Korean Speakers</div>
-    <div class="logo-sub">From 한국어 to 日本語</div>
-  </div>
+    <div class="logo-sub">From 한국어 to 日本語 — The Memory Architect's Guide</div>
+  </a>
   <div class="sidebar-progress">
     <div class="sidebar-progress-label">Progress</div>
     <div class="sidebar-progress-bar">
-      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
     </div>
-    <div class="sidebar-progress-count">0/18 complete</div>
+    <div class="sidebar-progress-count">0/20 complete</div>
   </div>
   <nav class="sidebar-nav">
+    <a href="ch-00.html" class="toc-link"><span class="toc-num">00</span><span class="toc-check" data-ch="00"></span>Memory Science</a>
     <a href="ch-01.html" class="toc-link"><span class="toc-num">01</span><span class="toc-check" data-ch="01"></span>Your Korean Advantage</a>
     <a href="ch-02.html" class="toc-link active"><span class="toc-num">02</span><span class="toc-check" data-ch="02"></span>Hiragana</a>
     <a href="ch-03.html" class="toc-link"><span class="toc-num">03</span><span class="toc-check" data-ch="03"></span>Katakana</a>
@@ -47,6 +48,8 @@
     <a href="ch-16.html" class="toc-link"><span class="toc-num">16</span><span class="toc-check" data-ch="16"></span>Listening</a>
     <a href="ch-17.html" class="toc-link"><span class="toc-num">17</span><span class="toc-check" data-ch="17"></span>Cultural Pragmatics</a>
     <a href="ch-18.html" class="toc-link"><span class="toc-num">18</span><span class="toc-check" data-ch="18"></span>JLPT and Beyond</a>
+    <a href="ch-19.html" class="toc-link"><span class="toc-num">19</span><span class="toc-check" data-ch="19"></span>Memory Palace</a>
+    <a href="ch-20.html" class="toc-link"><span class="toc-num">20</span><span class="toc-check" data-ch="20"></span>The 90-Day Sprint</a>
     <a href="appendices.html" class="toc-link" style="margin-top:.5rem;border-top:1px solid var(--border);padding-top:.8rem"><span class="toc-num">+</span>Appendices</a>
   </nav>
 </aside>
@@ -56,6 +59,15 @@
 
 <section id="ch02" data-ch="02" style="padding-top:3rem">
 <h2><span class="ch-label">Chapter 02</span>Hiragana — Your First Script (ひらがな)</h2>
+
+<div class="callout memory">
+  <div class="callout-title">Memory Technique Spotlight: Method of Loci + Keyword Mnemonics</div>
+  <p>Each hiragana character gets a specific spot in your Kitchen memory palace. Combined with keyword bridges (English/Korean words that sound like the character), you'll build two independent retrieval pathways for every character.</p>
+</div>
+<div class="callout info">
+  <div class="callout-title">Palace Assignment: The Kitchen (부엌)</div>
+  <p>Your kitchen becomes the home of all 46 hiragana. Vowels on the refrigerator, か-row on the counter, さ-row at the sink, た-row on the stove, な-row by the pots, は-row at the rice cooker, ま-row by the microwave, や-row at the window, ら-row at the table, わ-row + ん at the door.</p>
+</div>
 
 <p>Hiragana is the foundation of Japanese writing. 46 basic characters, each representing one syllable. Unlike Hangeul's systematic design, hiragana evolved from cursive kanji — so the shapes are <strong>arbitrary</strong>. You'll need mnemonics. Target: <strong>3–7 days</strong>.</p>
 
@@ -677,5 +689,7 @@ QuizEngine.TimedSprint(
   }
 );
 </script>
+<script src="js/spaced-repetition.js"></script>
+<script src="js/memory-palace.js"></script>
 </body>
 </html>

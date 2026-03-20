@@ -21,19 +21,20 @@
 </button>
 
 <aside class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <span class="logo-badge">Zero to Hero</span>
+  <a href="index.html" class="sidebar-logo">
+    <span class="logo-badge">Zero to Hero — Memory Architecture Edition</span>
     <div class="logo-title">日本語 for Korean Speakers</div>
-    <div class="logo-sub">From 한국어 to 日本語</div>
-  </div>
+    <div class="logo-sub">From 한국어 to 日本語 — The Memory Architect's Guide</div>
+  </a>
   <div class="sidebar-progress">
     <div class="sidebar-progress-label">Progress</div>
     <div class="sidebar-progress-bar">
-      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
     </div>
-    <div class="sidebar-progress-count">0/18 complete</div>
+    <div class="sidebar-progress-count">0/20 complete</div>
   </div>
   <nav class="sidebar-nav">
+    <a href="ch-00.html" class="toc-link"><span class="toc-num">00</span><span class="toc-check" data-ch="00"></span>Memory Science</a>
     <a href="ch-01.html" class="toc-link"><span class="toc-num">01</span><span class="toc-check" data-ch="01"></span>Your Korean Advantage</a>
     <a href="ch-02.html" class="toc-link"><span class="toc-num">02</span><span class="toc-check" data-ch="02"></span>Hiragana</a>
     <a href="ch-03.html" class="toc-link"><span class="toc-num">03</span><span class="toc-check" data-ch="03"></span>Katakana</a>
@@ -52,6 +53,8 @@
     <a href="ch-16.html" class="toc-link"><span class="toc-num">16</span><span class="toc-check" data-ch="16"></span>Listening</a>
     <a href="ch-17.html" class="toc-link"><span class="toc-num">17</span><span class="toc-check" data-ch="17"></span>Cultural Pragmatics</a>
     <a href="ch-18.html" class="toc-link active"><span class="toc-num">18</span><span class="toc-check" data-ch="18"></span>JLPT and Beyond</a>
+    <a href="ch-19.html" class="toc-link"><span class="toc-num">19</span><span class="toc-check" data-ch="19"></span>Memory Palace</a>
+    <a href="ch-20.html" class="toc-link"><span class="toc-num">20</span><span class="toc-check" data-ch="20"></span>The 90-Day Sprint</a>
     <a href="appendices.html" class="toc-link" style="margin-top:.5rem;border-top:1px solid var(--border);padding-top:.8rem"><span class="toc-num">+</span>Appendices</a>
   </nav>
 </aside>
@@ -61,6 +64,11 @@
 
 <section id="ch18" data-ch="18" style="padding-top:3rem">
 <h2><span class="ch-label">Chapter 18</span>JLPT and Beyond &mdash; The Path to True Fluency</h2>
+
+<div class="callout memory">
+  <div class="callout-title">Memory Technique Spotlight: Metacognitive Strategy + Self-Regulated Learning</div>
+  <p>This chapter is about learning how to learn. Metacognition — thinking about your own thinking — is the master skill that makes all other memory techniques more effective. By understanding your strengths, weaknesses, and optimal study patterns, you become a self-regulated learner who can tackle any language challenge.</p>
+</div>
 
 <p>This chapter is not the end of your journey -- it is the <strong>starting point</strong>. Over the preceding 17 chapters you have studied grammar structures, kanji strategies, honorifics, reading, writing, listening, and cultural pragmatics. Now let us integrate that knowledge toward the concrete goal of the <span class="jp">日本語能力試験</span> (JLPT), and open the road to true fluency beyond the exam.</p>
 
@@ -487,7 +495,7 @@
 
 <div style="display:flex;justify-content:space-between;margin:2rem 0">
   <a href="ch-17.html" class="quiz-btn secondary">&larr; Chapter 17: Cultural Pragmatics</a>
-  <a href="appendices.html" class="quiz-btn">Appendices &mdash; Reference &rarr;</a>
+  <a href="ch-19.html" class="quiz-btn">Chapter 19: Memory Palace &rarr;</a>
 </div>
 
 </section>
@@ -631,5 +639,7 @@ QuizEngine.RecallCheck(
   }
 );
 </script>
+<script src="js/spaced-repetition.js"></script>
+<script src="js/memory-palace.js"></script>
 </body>
 </html>
