@@ -86,6 +86,82 @@
   };
 })();
 
+// --- Chapter TOC Draggable (desktop only) ---
+(function () {
+  var toc = document.querySelector('.chapter-toc');
+  if (!toc) return;
+
+  var dragging = false, startX, startY, origLeft, origTop;
+
+  function isFixed() {
+    return getComputedStyle(toc).position === 'fixed';
+  }
+
+  toc.addEventListener('mousedown', function (e) {
+    if (!isFixed()) return;
+    if (e.target.closest('a, summary, details')) return;
+    dragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    var r = toc.getBoundingClientRect();
+    origLeft = r.left;
+    origTop = r.top;
+    toc.style.transition = 'none';
+    toc.classList.add('toc-dragging');
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+    var x = Math.max(0, Math.min(window.innerWidth - 60, origLeft + dx));
+    var y = Math.max(0, Math.min(window.innerHeight - 60, origTop + dy));
+    toc.style.left = x + 'px';
+    toc.style.top = y + 'px';
+  });
+
+  document.addEventListener('mouseup', function () {
+    if (!dragging) return;
+    dragging = false;
+    toc.classList.remove('toc-dragging');
+    toc.style.transition = '';
+  });
+
+  // Touch support
+  toc.addEventListener('touchstart', function (e) {
+    if (!isFixed()) return;
+    if (e.target.closest('a, summary, details')) return;
+    var t = e.touches[0];
+    dragging = true;
+    startX = t.clientX;
+    startY = t.clientY;
+    var r = toc.getBoundingClientRect();
+    origLeft = r.left;
+    origTop = r.top;
+    toc.style.transition = 'none';
+    toc.classList.add('toc-dragging');
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function (e) {
+    if (!dragging) return;
+    var t = e.touches[0];
+    var dx = t.clientX - startX;
+    var dy = t.clientY - startY;
+    var x = Math.max(0, Math.min(window.innerWidth - 60, origLeft + dx));
+    var y = Math.max(0, Math.min(window.innerHeight - 60, origTop + dy));
+    toc.style.left = x + 'px';
+    toc.style.top = y + 'px';
+  }, { passive: true });
+
+  document.addEventListener('touchend', function () {
+    if (!dragging) return;
+    dragging = false;
+    toc.classList.remove('toc-dragging');
+    toc.style.transition = '';
+  });
+})();
+
 // --- Chapter TOC Scroll Spy ---
 (function () {
   var toc = document.querySelector('.chapter-toc');

@@ -878,9 +878,11 @@ pre code { background: none; padding: 0; }
   .chapter-toc details > ol { display: block !important; }
   .chapter-toc-title { cursor: default; pointer-events: none; }
   .chapter-toc-title::after { display: none; }
+  .chapter-toc { cursor: grab; }
   .chapter-toc::-webkit-scrollbar { width: 2px; }
   .chapter-toc::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 }
+.chapter-toc.toc-dragging { cursor: grabbing; opacity: .85; box-shadow: 0 4px 20px rgba(0,0,0,.3); }
 
 /* --- Footer --- */
 footer {
