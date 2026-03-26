@@ -20,7 +20,7 @@ var QuizEngine = (function () {
   function Flashcard(container, data) {
     // data: { cards: [{ front, back, detail }] }
     var idx = 0;
-    var cards = data.cards;
+    var cards = data.cards.slice().sort(function () { return Math.random() - 0.5; });
 
     var wrap = el('div', 'quiz-container');
     var header = el('div', 'quiz-header', 'Flashcard <span class="quiz-type">Click to reveal</span>');
